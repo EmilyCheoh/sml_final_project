@@ -110,6 +110,15 @@ Ex: export CLASSPATH=$CLASSPATH:/path/to/corenlp/download/*.
 ```
 
 ### Trained model and data
+To download all provided trained models and data, first run:
+
+```
+./download.sh
+```
+
+Warning: this downloads a 7.5GB tarball (25GB untarred) and will take some time.
+
+After that please also download our dataset [here](https://drive.google.com/file/d/1a1wLzWiB4_gWPX0lZNQWBefm3oTM_t0T/view?usp=sharing), and move this file under the path data/ in order to run our model directly.
 
 ### Running the whole system
 To interactively ask questions using our system, run:
