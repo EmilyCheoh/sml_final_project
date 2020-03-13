@@ -109,9 +109,9 @@ IMPORTANT: The default tokenizer is CoreNLP so you will need that in your CLASSP
 Ex: export CLASSPATH=$CLASSPATH:/path/to/corenlp/download/*.
 ```
 
-## Trained model and data
+### Trained model and data
 
-## Running the whole system
+### Running the whole system
 To interactively ask questions using our system, run:
 
 ```
