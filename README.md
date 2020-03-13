@@ -34,9 +34,7 @@ Web crawler will generate some txt. files to store the documents. Each file cons
 
 ```
 {"id": "doc1", "text": "text of doc1"}
-
 ...
-
 {"id": "docN", "text": "text of docN"}
 ```
 
@@ -88,7 +86,6 @@ To clone the repository and install our system, run:
 
 ```
 git clone https://github.com/EmilyCheoh/sml_final_project.git
-
 cd DrQA; pip install -r requirements.txt; python setup.py develop
 ```
 
@@ -102,9 +99,7 @@ Verify that it runs:
 
 ```
 from drqa.tokenizers import CoreNLPTokenizer
-
 tok = CoreNLPTokenizer()
-
 tok.tokenize('hello world').words()  # Should complete immediately
 ```
 
@@ -119,10 +114,13 @@ Ex: export CLASSPATH=$CLASSPATH:/path/to/corenlp/download/*.
 ## Running the whole system
 To interactively ask questions using our system, run:
 
+```
 python scripts/pipeline/interactive.py
+```
 
 Optional arguments:
 
+```
 --reader-model    Path to trained Document Reader model.
 --retriever-model Path to Document Retriever model (tfidf).
 --doc-db          Path to Document DB.
@@ -130,5 +128,6 @@ Optional arguments:
 --candidate-file  List of candidates to restrict predictions to, one candidate per line.
 --no-cuda         Use CPU only.
 --gpu             Specify GPU device id to use.
+```
 
 ## docker image
