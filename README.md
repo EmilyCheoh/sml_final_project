@@ -7,6 +7,7 @@ Idealy, given a question, the system will search through it knowledge base and r
 The task we focus on is domain-specific questions answering.
 
 ## How our project solves this problem
+![framework](solution.png)
 Our model is based on [DrQA](https://github.com/facebookresearch/DrQA), which focuses on Open-domain QA problem. 
 
 With DrQA, the system is searching for an answer for a question in very large corpus of unstructured documents, so it is designed into two parts: a document retriever and a bidirectional RNN document reader. 
@@ -24,13 +25,13 @@ Output: Answers to the questions and according text source
 ## How to train the model
 ### Scraping data from website
 
-To get potential documents from website, run:
+To get a txt file of documents from website, run:
 
-```
-### Command: (web crawler)
+``` python
+python clawer.py
 ```
 
-Web crawler will generate some txt. files to store the documents. Each file consists of JSON-encoded documents that have id and text fields, one per line:
+Web crawler will generate a txt. file to store the documents. Each file consists of JSON-encoded documents that have id and text fields, one per line:
 
 ```
 {"id": "doc1", "text": "text of doc1"}
@@ -67,16 +68,15 @@ python scripts/retriever/interactive.py --model /path/to/model/(.npz file)
 ```
 
 ```
->>> process('question answering', k=5)(change to screenshot of our document retriever)
+>>> process('Old Navy', k = 3)
++------+---------+-----------+
+| Rank |  Doc Id | Doc Score |
++------+---------+-----------+
+|  1   | doc5958 |   97.709  |
+|  2   | doc5960 |   90.914  |
+|  3   | doc5943 |   73.943  |
++------+---------+-----------+
 ```
-
-| Rank          |  Doc Id           | Doc Score   |
-| ------------- |:----------------:| -------------:|
-| 1      | Question answering | 327.89 |
-|  2   |       Watson (computer)       |   217.26  |
-|  3   |          Eric Nyberg          |   214.36  |
-|  4   |   Social information seeking  |   212.63  |
-|  5   | Language Computer Corporation |   184.64  |
 
 
 ## How to use the trained model
