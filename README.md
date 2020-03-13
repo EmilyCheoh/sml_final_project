@@ -19,7 +19,7 @@ Therefore, in our system, there is a web crawler before document retriever to it
 ## input&output of your model
 Input: Questions users are interested in and the knowledge source
 
-Output: Answers to the questions and the source(?)
+Output: Answers to the questions and according text source
 
 ## How to train the model
 ### Scraping data from website
