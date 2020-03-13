@@ -130,4 +130,4 @@ Optional arguments:
 --gpu             Specify GPU device id to use.
 ```
 
-## docker image
+## Docker image
