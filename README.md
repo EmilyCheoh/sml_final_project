@@ -23,29 +23,40 @@ Output: Answers to the questions and the source(?)
 
 ## How to train the model
 ### Scraping data from website
+
 To get potential documents from website, run:
+
+```
 ### Command: (web crawler)
+```
+
 Web crawler will generate some txt. files to store the documents. Each file consists of JSON-encoded documents that have id and text fields, one per line:
 
+```
 {"id": "doc1", "text": "text of doc1"}
 
 ...
 
 {"id": "docN", "text": "text of docN"}
+```
 
 ### Storing the documents
 With those txt. files, the next step will be build a sqlite database to store them.
 
 To create a splite database, run:
 
+```
 python build_db.py /path/to/data /path/to/saved/database.db
+```
 
 Path to data is the path to a nested directory of generated txt. files by web crawler.
 
 ### Building TF-IDF N-grams
 To build a TF-IDF matrix from documents stored in your built sqlite database, run:
 
+```
 python build_tfidf.py /path/to/doc/db /path/to/output/dir
+```
 
 The sparse matrix and its associated metadata will be saved to the output directory under <db-name>-tfidf-ngram=\<N>-hash=\<N>-tokenizer=\<T>.npz
   
@@ -53,7 +64,9 @@ The sparse matrix and its associated metadata will be saved to the output direct
 
 To use document retriever interactively, run:
 
+```
 python scripts/retriever/interactive.py --model /path/to/model/(.npz file)
+```
 
 ```
 >>> process('question answering', k=5)(change to screenshot of our document retriever)
@@ -73,25 +86,33 @@ python scripts/retriever/interactive.py --model /path/to/model/(.npz file)
 
 To clone the repository and install our system, run:
 
+```
 git clone https://github.com/EmilyCheoh/sml_final_project.git
 
 cd DrQA; pip install -r requirements.txt; python setup.py develop
+```
 
 To Download a CoreNLP, run:
 
+```
 ./install_corenlp.sh
+```
 
 Verify that it runs:
 
+```
 from drqa.tokenizers import CoreNLPTokenizer
 
 tok = CoreNLPTokenizer()
 
 tok.tokenize('hello world').words()  # Should complete immediately
+```
 
 IMPORTANT: The default tokenizer is CoreNLP so you will need that in your CLASSPATH to run the system.
 
+```
 Ex: export CLASSPATH=$CLASSPATH:/path/to/corenlp/download/*.
+```
 
 ## Trained model and data
 
