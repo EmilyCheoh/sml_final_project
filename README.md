@@ -124,7 +124,7 @@ After that, please also download our dataset [here](https://drive.google.com/fil
 To interactively ask questions using our system, run:
 
 ```
-python scripts/pipeline/interactive.py
+python scripts/pipeline/interactive.py --retriever-model data/web/db-tfidf-ngram\=2-hash\=16777216-tokenizer\=simple.npz --doc-db data/web/db.db
 ```
 
 Optional arguments:
@@ -140,3 +140,7 @@ Optional arguments:
 ```
 
 ## Docker image
+### Docker file
+You can run our model with this docker file [here](https://github.com/EmilyCheoh/sml_final_project/blob/master/Dockerfile), but you still need to download our dataset [here](https://drive.google.com/file/d/1a1wLzWiB4_gWPX0lZNQWBefm3oTM_t0T/view?usp=sharing).
+
+If it is not working, please go through the whole pipeline to run our model. Thank you.
